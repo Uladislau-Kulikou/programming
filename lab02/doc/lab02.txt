@@ -1,0 +1,92 @@
+Лабораторна робота №2
+Студента группи КН-922а
+Кулікова Владислава
+на тему "Основи debug процессу"
+
+1. Перш за все створюємо новий репозиторій та перейменовуємо branch на "master" замість "main" по дефолту, щоб уникнути можливих 
+   помилок та завантажуэмо необхідні пакети:                
+        
+        sudo apt-get update
+        sudo apt-get upgrade
+        sudo apt-get install git
+        sudo apt-get install clang
+        sudo apt-get install tree
+        sudo apt-get install lldb
+        
+2. Далі у віртуальній машині створюємо нову папку, де ініціалізуємо git та копіюємо репозиторій таким чином:
+
+        mkdir programming
+        cd programming
+        git init 
+        git remote add origin 
+        https://github.com/davydov-vyacheslav/sample_project
+        git clone https://github.com/davydov-vyacheslav/sample_project
+        
+Цими діями ми отримали увесь репозиторій в окремій папці, звідки ми далі скопіюємо лише необхідне у наш проєкт.
+3. Створюємо дві папки одна в одній, та копіюємо все необхідне:
+        
+        mkdir -pv lab02/src
+        cd ..
+        cp programming/sample_project/.clang-format programming
+        cp programming/sample_project/.clang-tidy programming
+        cp programming/sample_project/.clang-format programming
+        cp programming/sample_project/.gitlab-ci.yml programming
+        cp programming/sample_project/lab00/Doxyfile programming/lab02
+        cp programming/sample_project/lab00/Makefile programming/lab02
+        cp programming/sample_project/lab00/README.md programming/lab02
+        cp programming/sample_project/lab00/src/* programming/lab02/src
+        
+У результаті отримуємо таку картину:        
+     
+        ├── .clang-format
+        ├── .clang-tidy
+        ├── .git
+        ├── .gitlab-ci.yml
+        ├── README
+        └── lab02
+            ├── Doxyfile
+            ├── Makefile
+            └── src
+                ├── lib.c
+                ├── lib.h
+                └── main.c
+
+4. Відтепер нам більше не потрібна директорія "sample_project" і ліпше її видалити и потім добавити до комміту увесь вміст:
+        
+        rm -r sample_project
+        git add .
+        git commit -m "nitial copy of sample_project"
+        git push origin master
+
+5. Надалі треба працювати з кодом. Подивившись у вміст папок, ми можемо помітити код у файлах директорії "src", але за вмістом
+   зрозуміло, що нам доведетсья доробляти лише код у файлах "lib.c" та "lib.h".
+   
+   У файлі "lib.c", спираючись на приклади, додаємо новий тип тварини - людину:
+        
+        ... case HUMAN:     
+                result = "Людина";
+                break; ...      
+                
+   У файлі "lib.h", знаходимо знайомий перелік тварин, та також додаємо туди те саме, але з людиною:
+   
+        PIG, /**< Свиня */
+        HUMAN, /**< Людина */
+        COW, /**< Корова */
+        DOG, /**< Собака */
+        CAT, /**< Кіт */
+        ANIMAL_TYPE_COUNT /**< Кількість тварин */
+        
+   Перевіряємо корекність роботи програми та отримуємо результат:
+   
+        Інформація про тварину №01: Корова: зріст = 110 см, маса = 55 гр. 
+        Інформація про тварину №02: Собака: зріст = 59 см, маса = 53 гр. 
+        Інформація про тварину №03: Людина: зріст = 73 см, маса = 112 гр. 
+        Інформація про тварину №04: Кіт: зріст = 97 см, маса = 13 гр. 
+        Інформація про тварину №05: Людина: зріст = 68 см, маса = 35 гр. 
+        Інформація про тварину №06: Кіт: зріст = 12 см, маса = 56 гр. 
+        Інформація про тварину №07: Людина: зріст = 83 см, маса = 95 гр. 
+        Інформація про тварину №08: Собака: зріст = 48 см, маса = 90 гр. 
+        Інформація про тварину №09: Кіт: зріст = 28 см, маса = 8 гр. 
+        Інформація про тварину №10: Людина: зріст = 31 см, маса = 70 гр.
+   
+6. 
