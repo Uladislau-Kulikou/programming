@@ -18,8 +18,7 @@
         mkdir programming
         cd programming
         git init 
-        git remote add origin 
-        https://github.com/davydov-vyacheslav/sample_project
+        git remote add origin https://github.com/davydov-vyacheslav/sample_project
         git clone https://github.com/davydov-vyacheslav/sample_project
         
 Цими діями ми отримали увесь репозиторій в окремій папці, звідки ми далі скопіюємо лише необхідне у наш проєкт.
@@ -89,4 +88,33 @@
         Інформація про тварину №09: Кіт: зріст = 28 см, маса = 8 гр. 
         Інформація про тварину №10: Людина: зріст = 31 см, маса = 70 гр.
    
-6. 
+6. Дослідемо debugger (lldb)
+   
+   Існує декілька допоміжних команд:
+   
+      s (step in) - захід у программу
+      n (step over) - наступний крок
+      finish (step out) - вихід з функції
+   
+   lldb dist/main.bin
+   b 41
+   p *entity
+   (animal) $1 = (type = {COW, height = 29, weight = 92)
+   
+   
+7. Не складно помітити, що між звичайним запуском та запуском з відлагожденням є принципіальнна різниця.
+   Звичайний запуск повертає нам лише результат дії программи, на відміну від запуску із відлагожденням,
+   де программа діє покроково та дає нам змогу дізнатися, що відбувається всередині неї під час виконання.
+
+8. Спочатку розриваємо зв'язок із репозиторієм-зразком а вже потім з'єднуємося з нашим репозиторієм,
+   обираємо все та пушимо на гітхаб:
+   
+   git remote rm https://github.com/davydov-vyacheslav/sample_project
+   git remote add origin https://github.com/Uladislau-Kulikou/programming
+   git add .
+   git commit -m "added new animal type HUMAN"
+   git push origin master
+   
+   Не отримавши жодних помилок, вважаємо завдання виконаним
+   
+   
