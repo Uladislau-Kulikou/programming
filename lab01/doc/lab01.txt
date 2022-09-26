@@ -104,8 +104,47 @@
         Інформація про тварину №09: Кіт: зріст = 28 см, маса = 8 гр. 
         Інформація про тварину №10: Людина: зріст = 31 см, маса = 70 гр.
     
-7.    
-    
+7. Тепер необхідно зробити зміни у Makefile all: clean prep compile check.
+   Для цього переходимо у директорії що містить Makefile:
+        
+        nano Makefile
+   
+   У кінець коду додаємо вищезазначену ціль и зберігаємо зміни.
+   Відтепер нам не доведеться писати все це речення цілком та можно просто писати "make all"
+   
+8. Ми можемо дізнатись версії пакетів таким чином:
+      
+      clang --version
+      Ubuntu clang version 14.0.0-1ubuntu1
+      make -- version
+      GNU Make 4.3
+
+9. Команда "man" (manual) це утіліта, призначена для форматування та виводу справкових сторінок.
+   Ми можемо дізнатись що воно таке є, звернувшись до неї самої:
+   
+      man man
+      
+      man  is  the system's manual pager.  Each page argument given to man is
+      normally the name of a program, utility or function.  The  manual  page
+      associated with each of these arguments is then found and displayed.  A
+      section, if provided, will direct man to look only in that  section  of
+      the  manual.   The  default action is to search in all of the available
+      sections following a pre-defined order (see DEFAULTS), and to show only
+      the first page found, even if page exists in several sections.
+
+10.   
+      git diff
+      git diff
+      diff --git a/lab02/Makefile b/lab02/Makefile
+      index 19af541..bb7e8e2 100644
+      --- a/lab02/Makefile
+      +++ b/lab02/Makefile
+      @@ -16,3 +16,4 @@ check:
+      clang-format --verbose -dry-run --Werror src/*
+      clang-tidy src/*.c  -checks=-readability-uppercase-literal-suffix,-readability-magic-numbers,-clang-analyzer-deadcode.DeadStores,-clang-analyzer-                     security.insecureAPI.rand
+      rm -rf src/*.dump
+      +all: clean prep compile check
+      
    
    
    
