@@ -25,6 +25,5 @@ int main(){
     if (sum1 == sum2){
         is_lucky = 1;
     }
-    printf("%d",is_lucky);
     return 0;
 }
