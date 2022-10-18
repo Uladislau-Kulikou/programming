@@ -1,16 +1,12 @@
-/* 
-Завдання №20 
+
+/*
+Завдання №20
 Підрахувати суму чисел у заданому діапазоні.
 */
 #include <stdio.h>
 
-int main(){
-    int start_number = 50; //  Початок відліку
-    int end_number = 52; // Кінець відліку
-    int result; // Змінна результату
-
-    for (int i = start_number; i < end_number+1; i++){ //задання меж цикла
-        result += i;
-    }
-    return 0;
+int main() {
+  int x = 50;                               // Початок діапазона
+  int y = 52;                               // Кінець діапазона
+  int result = (x * x + x - y * y + y) / 2; //Знаходження сумми
 }
