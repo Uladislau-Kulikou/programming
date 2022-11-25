@@ -30,7 +30,7 @@ int determinant(int size, int *array) {
   }
   for (int k = 0; k < size; k++) {
     int next_matrix[size - 1][size - 1];
-    det += *(array + 0 * size + k) * pow(-1, k + 2) * determinant(size - 1, minor(k, size, array, *next_matrix));
+    det += *(array + 0 * size + k) * pow(-1, k) * determinant(size - 1, minor(k, size, array, *next_matrix));
   }
   
   return det;
