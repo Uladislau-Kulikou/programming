@@ -10,6 +10,7 @@ void fill_matrix(unsigned int size, int *matrix) {
   }
 }
 
+// Помножує матрицю саму на себе, повертає резульат як матрицю
 int *mult_matrix_byself(unsigned int size, int *array1, int *array2) {
   for (int y = 0; y < size; y++) {
     for (int x = 0; x < size; x++) {
@@ -27,7 +28,7 @@ int main() {
   int B[N][N]; // Результат множення
 
   fill_matrix(N, *A);
-  mult_matrix_byself(N, *A, *B));
+  mult_matrix_byself(N, *A, *B);
 
   return 0;
 }
