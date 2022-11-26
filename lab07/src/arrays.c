@@ -27,7 +27,7 @@ int main() {
   int B[N][N]; // Результат множення
 
   fill_matrix(N, *A);
-  print(N, mult_matrix_byself(N, *A, *B));
+  mult_matrix_byself(N, *A, *B));
 
   return 0;
 }
