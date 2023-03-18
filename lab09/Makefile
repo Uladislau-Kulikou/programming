@@ -1,18 +1,19 @@
 CC = clang
-LAB_OPTS = -I./src src/lib.c
-C_OPTS = $(MAC_OPTS) -std=gnu11 -g -Wall -Wextra -Werror -Wformat-security -Wfloat-equal -Wshadow -Wconversion -Wlogical-not-parentheses -Wnull-dereference -Wno-unused-variable -Wno-implicit-int-float-conversion -Werror=vla $(LAB_OPTS)
+C_OPTS = $(MAC_OPTS) -std=gnu11 -g 
+TEST_OPTS = -I/src -I/usr/local/include -L/usr/local/lib 
+TEST_FILES = src/det.c test/test.c -lm -lcheck -lsubunit
 
 clean:
-	rm -rf dist
+	rm -rf dist 
 prep:
 	mkdir dist
-compile: main.bin
-
-main.bin: src/main.c
-	$(CC) $(C_OPTS) $< -o ./dist/$@
+compile: test/test.c
+	$(CC) $(C_OPTS) $(TEST_OPTS) -o dist/my_test $(TEST_FILES)
 run: clean prep compile
-	./dist/main.bin
+	./dist/my_test
 check:
 	clang-format --verbose -dry-run --Werror src/*
-	clang-tidy src/*.c  -checks=-readability-uppercase-literal-suffix,-readability-magic-numbers,-clang-analyzer-deadcode.DeadStores,-clang-analyzer-security.insecureAPI.rand
+	clang-tidy src/*.c -checks=-readability-uppercase-literal-suffix,-readability-magic-numbers,-clang-analyzer-deadcode.DeadStores,-clang-analyzer-security.insecureAPI.rand
 	rm -rf src/*.dump
+
+
