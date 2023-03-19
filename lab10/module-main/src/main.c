@@ -1,4 +1,4 @@
-#include "../module-library/src/det.c"
+#include "det.h"
 #include <check.h>
 #define N 3
 

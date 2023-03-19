@@ -1,6 +1,6 @@
 CC = clang
 C_OPTS = $(MAC_OPTS) -std=gnu11 -g 
-TEST_OPTS = -I../lib -L../lib -I/usr/local/include -L/usr/local/lib -lm
+TEST_OPTS = -I/usr/local/include -L/usr/local/lib -lm
 
 clean:
 	rm -rf dist 

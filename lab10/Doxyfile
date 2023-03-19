@@ -9,7 +9,7 @@ OUTPUT_LANGUAGE = English
 DOXYFILE_ENCODING = UTF-8
 
 ## input options
-INPUT = lib/det.h
+INPUT = module-library/src/det.h
 INPUT_ENCODING = UTF-8
 RECURSIVE = YES
 FILE_PATTERNS = *.c *.h *.md

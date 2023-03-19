@@ -1,7 +1,6 @@
 CC = clang
 C_OPTS = $(MAC_OPTS) -std=gnu11 -g 
-TEST_OPTS = -I/src -I/usr/local/include -L/usr/local/lib 
-TEST_FILES = src/det.c test/test.c -lm -lcheck -lsubunit
+TEST_OPTS = -I/usr/local/include -L/usr/local/lib test/test.c 
 
 clean:
 	rm -rf dist 
@@ -12,10 +11,10 @@ prep:
 compile: det.a test.bin
 
 test.bin: test/test.c
-	$(CC) $(C_OPTS) $(TEST_OPTS) $(TEST_FILES) $< -o dist/test.bin 
+	$(CC) $(C_OPTS) $(TEST_OPTS) -o dist/test.bin -lm -lcheck -lsubunit
 
 det.a:
-	$(CC) -c $(C_OPTS) $(TEST_OPTS) src/det.c -o dist/det.o 
+	$(CC) -c $(C_OPTS) $(TEST_OPTS) -o dist/det.o 
 	ar rcs dist/libdet.a ./dist/det.o
 	cp dist/libdet.a ../lib
 	cp src/det.h ../lib
