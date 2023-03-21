@@ -1,12 +1,12 @@
 #include <check.h>
-#include "../src/det.c"
+#include "det.c"
 #define TESTS_NUMBER 3
 
 START_TEST(test_determinant){
   float matrix1[3][3] = {{1.0f, 2.0f, 9.0f}, {4.0f, 5.0f, 6.0f}, {7.0f, 8.0f, 9.0f}};
   float matrix2[3][3] = {{1.0f, 2.0f, 9.0f}, {4.0f, 5.0f, 6.0f}, {7.0f, 8.0f, -9.0f}};
   float matrix3[3][3] = {{1.1f, 2.0f, -9.0f}, {4.0f, 5.5f, 6.0f}, {7.7f, 0.0f, 9.0f}};
-  float (*matrixes[TESTS_NUMBER])[3][3] = {&matrix1, &matrix2, &matrix3};
+  float (*matrixes[TESTS_NUMBER]) = {matrix1, matrix2, matrix3};
   
   int matrixes_size[TESTS_NUMBER] = {3, 3, 3};
   float expected_values[TESTS_NUMBER] = {-18.0f, 36.0f, 456.0f};
