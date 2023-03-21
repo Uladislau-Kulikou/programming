@@ -1,6 +1,6 @@
 CC = clang
 C_OPTS = $(MAC_OPTS) -std=gnu11 -g 
-TEST_OPTS = -I/src -I/usr/local/include -L/usr/local/lib 
+TEST_OPTS = -I./src -I/usr/local/include -L/usr/local/lib 
 TEST_FILES = src/det.c test/test.c -lm -lcheck -lsubunit
 
 clean:

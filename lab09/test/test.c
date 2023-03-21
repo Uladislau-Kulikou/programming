@@ -1,5 +1,5 @@
 #include <check.h>
-#include "../src/det.h"
+#include "det.h"
 #define TESTS_NUMBER 3
 
 START_TEST(test_determinant){
