@@ -8,4 +8,6 @@ int main(void){
 
     int *diag = get_diagonal(N, *arr);
     sort(N, diag);
+    free(diag);
+    return 0;
 }
