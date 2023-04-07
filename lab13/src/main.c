@@ -13,7 +13,6 @@ int main() {
   print_student_info();
   printf("Enter a string: ");
   fgets(input, sizeof(input), stdin);
-  printf("%s", input);
 
   for (unsigned long i = 0; i < strlen(input); i++) {
     if (isdigit(input[i])) {
