@@ -5,7 +5,7 @@ C_OPTS = $(MAC_OPTS) -std=c18 -g -Weverything -fsanitize=address $(LAB_OPTS)
 
 clean:
 	rm -rf dist 
-    
+
 prep:
 	mkdir dist
 
@@ -30,4 +30,4 @@ check:
 
 leak-check: clean prep compile
     ASAN_OPTIONS=detect_leaks=1 dist/main.bin
-	ASAN_OPTIONS=detect_leaks=1 LLVM_PROFILE_FILE="dist/test.profraw" dist/test.bin
+    ASAN_OPTIONS=detect_leaks=1 LLVM_PROFILE_FILE="dist/test.profraw" dist/test.bin

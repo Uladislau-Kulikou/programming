@@ -1,21 +1,22 @@
 #include "lib.h"
-
+#include <ctype.h>
 #include <stdio.h>
-#include <stdlib.h>
-#define BUFFER_SIZE 1024
+#include <string.h>
 
-int print_student_info(void) {
-  FILE* fp;
-  char buffer[BUFFER_SIZE];
-  size_t bytes_read;
-  fp = fopen("assets/input.txt", "r");
-  bytes_read = fread(buffer, 1, BUFFER_SIZE, fp);
-
-  if (bytes_read == 0) {
-    printf("Ошибка при чтении файла!\n");
-    return 1;
+int get_nums(char input[MAXLEN], char nums[MAXLEN]) {
+  int len = 0;
+  for (size_t i = 0; i < strlen(input); i++) {
+    if (isdigit(input[i])) {
+      nums[len] = input[i];
+      nums[len + 1] = '\0';
+      len++;
+    }
   }
-  fclose(fp);
-  printf("%s", buffer);
-  return 0;
+  return len;
+}
+
+void print_result(int len, char* nums) {
+  printf("\n%d digits have been found.\n", len);
+  for (int i = 0; i < len; i++) printf("%c ", nums[i]);
+  printf("\n");
 }

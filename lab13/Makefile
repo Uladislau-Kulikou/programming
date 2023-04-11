@@ -1,5 +1,5 @@
 CC = clang
-LAB_OPTS =  -I./src -I./assets -I/usr/local/include -L/usr/local/lib 
+LAB_OPTS =  -I./src -I/usr/local/include -L/usr/local/lib 
 C_OPTS = $(MAC_OPTS) -std=c18 -g -Weverything -fsanitize=address $(LAB_OPTS)
 
 
@@ -11,12 +11,17 @@ prep:
 
 compile: main.bin
 	
-main.bin: src/main.c
+main.bin:
 	$(CC) $(C_OPTS) src/main.c src/lib.c -o dist/main.bin
 
+test.bin: 
+	$(CC) $(C_OPTS) $(TEST_OPTS) src/lib.c test/test.c -o dist/test.bin -lcheck -lsubunit
+
 run: clean prep compile
-	clear
 	./dist/main.bin
+
+test: clean prep test.bin
+	./dist/test.bin
 
 check:
 	clang-format --verbose -dry-run --Werror src/*
