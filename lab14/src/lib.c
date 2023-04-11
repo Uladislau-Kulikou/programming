@@ -17,7 +17,7 @@ void read_from_file(char *path, double* freq, double* ampl, char* ch){
 void write_to_file(char *path, const int cols, const int rows, char** graph){
   FILE *output_file = fopen(path, "w");
   if (output_file == NULL){
-    printf("\033[1;35m warning\033[0m: \033[1mOutput file not specified.\033[0m\n");
+    printf("\033[1;35m warning:\033[0m \033[1mOutput file not specified.\033[0m\n");
     return;
   }
   for (int y=0; y < rows; y++){
