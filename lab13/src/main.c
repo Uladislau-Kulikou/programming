@@ -23,7 +23,8 @@ int main() {
   }
 
   printf("%d digits have been found.\n", len);
-  for (int i = 0; i < len; i++) printf("%c ", nums[i]);
+  for (int i = 0; i < len; i++) 
+    printf("%c ", nums[i]);
   printf("\n");
 
   return 0;
