@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
 
   read_from_file(argv[1], &frequency, &amplitude, &ch);
   const int cols = 80;
-  const int rows = (int)amplitude * 2 + 1;
+  const int rows = amplitude * 2 + 1;
 
   char** output = init_graph(cols, rows);
   calculate_points(cols, output, frequency, amplitude, ch);
