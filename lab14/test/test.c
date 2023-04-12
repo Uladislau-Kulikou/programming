@@ -1,6 +1,4 @@
 #include <check.h>
-#include <ctype.h>
-#include <string.h>
 #include "lib.h"
 
 #define COLS 40
