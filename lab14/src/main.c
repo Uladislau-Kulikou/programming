@@ -6,7 +6,7 @@ int main(int argc, char* argv[]) {
   char ch = '*';
 
   read_from_file(argv[1], &frequency, &amplitude, &ch);
-  const int cols = 80;
+  const int cols = 40;
   const int rows = amplitude * 2 + 1;
 
   char** output = init_graph(cols, rows);
