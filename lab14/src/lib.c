@@ -44,8 +44,8 @@ void calculate_points(const int cols, char** graph, double freq, double ampl, ch
   double x = 0.0;
   int y;
   while (x <= cols - 1) {
-    y = (int)(float)round(ampl - sin(2.0 * PI / freq * x) * ampl);
-    graph[y][(int)(float)round(x)] = ch;
+    y = round(ampl - sin(2.0 * PI / freq * x) * ampl);
+    graph[y][(int)round(x)] = ch;
     x += 2.0 / (ampl + freq);
   }
 }
