@@ -7,7 +7,7 @@
 #define LIB_H
 
 #include <stdio.h>
-
+#include <stdbool.h>
 #define MAXLEN 50 ///< Maximum length of strings
 
 /**
@@ -23,7 +23,7 @@ struct Teacher {
  * @brief Structure representing a discipline
  */
 struct Discipline {
-  int isWeekly;                 ///< Indicates if the discipline is weekly
+  bool isWeekly;                 ///< Indicates if the discipline is weekly
   char name[MAXLEN];            ///< Name of the discipline
   int hours;                    ///< Number of hours the discipline takes
   struct Teacher teacher;       ///< Teacher of the discipline

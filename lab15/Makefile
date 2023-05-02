@@ -18,7 +18,6 @@ test.bin:
 	$(CC) $(C_OPTS) $(TEST_OPTS) src/lib.c test/test.c -o dist/test.bin -lcheck -lsubunit
 
 run: clean prep compile
-	clear
 	./dist/main.bin
 
 test: clean prep test.bin
