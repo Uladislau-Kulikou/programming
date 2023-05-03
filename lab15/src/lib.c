@@ -41,7 +41,7 @@ void fillDisciplines(struct Discipline *disciplines, int numDisciplines, char *p
 }
 
 
-void sortDisciplines(struct Discipline disciplines[], const char* field, int size) {
+void sortDisciplines(struct Discipline *disciplines, const char* field, int size) {
   int i, j;
   struct Discipline temp;
 
@@ -69,4 +69,18 @@ void sortDisciplines(struct Discipline disciplines[], const char* field, int siz
       }
     }
   }
+}
+
+void write_to_file(struct Discipline *d, int size, char* path){
+  FILE *output_file = fopen(path, "w");
+  if (output_file == NULL){
+    printf("\033[1;35m warning:\033[0m \033[1mOutput file not specified.\033[0m\n");
+    return;
+  }
+  for (int i=0; i < size; i++){
+  fprintf(output_file, "\nЄ щотижневим: %s\nНазва предмету: %s\nГодин: %d\nВикладач: %s %s\nПошта викладача: %s\nМісце проведення: %s\n\n",
+      ((d[i].isWeekly) == true ? "Так" : "Ні"), d[i].name, d[i].hours, d[i].teacher.lastName, d[i].teacher.firstName,
+      d[i].teacher.email, places[d[i].place]);
+  }
+  fclose(output_file);
 }

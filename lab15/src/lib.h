@@ -63,6 +63,6 @@
     @param field Field by which the array is to be sorted. Valid values are "name", "hours", "teacher", and "place".
     @param size Number of elements in the array.
     */
-    extern void sortDisciplines(struct Discipline disciplines[], const char field, int size);
+    extern void sortDisciplines(struct Discipline disciplines[], const char* field, int size);
 
 #endif // LIB_H

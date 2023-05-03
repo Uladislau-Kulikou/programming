@@ -13,9 +13,9 @@ int main(int argc, char* argv[]) {
   fillDisciplines(all_disciplines, DISCNUM, argv[1], NULL);
   sortDisciplines(all_disciplines, "години", DISCNUM);
 
-  for (int i = 0; i < DISCNUM; i++){
+  for (int i = 0; i < DISCNUM; i++)
       printDiscipline(&all_disciplines[i]);
-  }
-
+  
+  write_to_file(&all_disciplines, DISCNUM, argv[2]);
   return 0;
 }
