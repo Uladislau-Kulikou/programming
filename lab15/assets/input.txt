@@ -1,1 +1,3 @@
-false Фізика 4 Давидов Вячеслав davidov@gmail.com 2
+1 Фізика 1 Борисович Бориc boris@gmail.com 2
+1 Програмування 666 Давидов Вячеслав davidov@gmail.com 2
+0 Мистецтво 2 Якась Олена olena@gmail.com 2

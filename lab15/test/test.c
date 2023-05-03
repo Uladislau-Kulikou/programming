@@ -4,16 +4,17 @@
 
 
 START_TEST(test_fill_discipline) {
-  struct Discipline expected;
-  fillDiscipline(&expected, NULL, "0 Фізика 4 Давидов Вячеслав davidov@gmail.com 2");
+  struct Discipline expected[1];
+
+  fillDisciplines(expected, 1, NULL, "0 Фізика 4 Давидов Вячеслав davidov@gmail.com 2");
   
-  ck_assert_int_eq(expected.isWeekly, 0);
-  ck_assert_str_eq(expected.name, "Фізика");
-  ck_assert_int_eq(expected.hours, 4);
-  ck_assert_str_eq(expected.teacher.lastName, "Давидов");
-  ck_assert_str_eq(expected.teacher.firstName, "Вячеслав");
-  ck_assert_str_eq(expected.teacher.email, "davidov@gmail.com");
-  ck_assert_int_eq(expected.place, 2);
+  ck_assert_int_eq(expected[0].isWeekly, 0);
+  ck_assert_str_eq(expected[0].name, "Фізика");
+  ck_assert_int_eq(expected[0].hours, 4);
+  ck_assert_str_eq(expected[0].teacher.lastName, "Давидов");
+  ck_assert_str_eq(expected[0].teacher.firstName, "Вячеслав");
+  ck_assert_str_eq(expected[0].teacher.email, "davidov@gmail.com");
+  ck_assert_int_eq(expected[0].place, 2);
 } 
 END_TEST
 
